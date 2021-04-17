@@ -17,9 +17,9 @@
  
 # Screenshots 
 - Wire Frame 
-- ![Wire-Frame](/Users/kyle/Desktop/finalApp/Assets/pics/Screen Shot 2021-04-17 at 11.32.13 AM.png)
+- ![Wire-Frame](https://github.com/spental/finalApp/blob/main/Assets/pics/Screen%20Shot%202021-04-17%20at%2011.32.13%20AM.png?raw=true)
 - Project Board
-- ![project board](/Users/kyle/Desktop/finalApp/Assets/pics/Screen Shot 2021-04-17 at 11.32.02 AM.png)
+- ![project board](https://github.com/spental/finalApp/blob/main/Assets/pics/Screen%20Shot%202021-04-17%20at%2011.32.02%20AM.png?raw=true)
 
 # Links
 
