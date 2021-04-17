@@ -17,9 +17,9 @@
  
 # Screenshots 
 - Wire Frame 
-- ![Wire-Frame]()
+- ![Wire-Frame](/Users/kyle/Desktop/finalApp/Assets/pics/Screen Shot 2021-04-17 at 11.32.13 AM.png)
 - Project Board
-- ![project board]()
+- ![project board](/Users/kyle/Desktop/finalApp/Assets/pics/Screen Shot 2021-04-17 at 11.32.02 AM.png)
 
 # Links
 
