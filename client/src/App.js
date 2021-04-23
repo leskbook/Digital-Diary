@@ -7,7 +7,7 @@ import SignIn from "./components/login"
 import {BrowserRouter as Router,Route,Switch,Redirect} from "react-router-dom";
 function App() {
   return (
-    <div className="App"  style={{backgroundImage: 'url('+image+')'}}>
+    <div className="App" >
       <Router>         
     <div className="App" >
     <Route exact={true} path="/" component={SignIn} />

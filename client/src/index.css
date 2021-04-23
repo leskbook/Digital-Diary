@@ -13,6 +13,7 @@ code {
     monospace;
 }
 html, body {
+  background-image: url(./images/MainPage.jpg);
   max-width: 100%;
   overflow-x: hidden;
 }
