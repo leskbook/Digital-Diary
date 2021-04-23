@@ -61,7 +61,7 @@ export default function SignIn() {
 <div>
          <CssBaseline />
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -121,7 +121,7 @@ export default function SignIn() {
       </div>
       </Grid>
 
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
 
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -182,9 +182,7 @@ export default function SignIn() {
       </div>
       </Grid>
       </Grid>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
+   
       </div>     
   );
 }
