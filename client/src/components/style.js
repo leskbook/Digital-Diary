@@ -44,5 +44,17 @@ margin:"5px"
   ImagePreview:{
     width:"100px",
     height:"100px"
+  },
+  validateTitle:{
+    display: "none",
+    color: "red",
+    position: "absolute",
+    fontStyle:"Italic"
+  },
+  footer :{
+    backgroundColor: "white",
+    width: "100%",
+    position: "absolute",
+    bottom: "0"
   }
 }));
