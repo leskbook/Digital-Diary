@@ -9,12 +9,11 @@ const Header=()=>{
 return(
     <div className={classes.root}>
 <AppBar position="static" fullWidth>
-  <Toolbar>
-   
-    <Button color="inherit">Logout</Button>
-     <div style={{float:"initial"}}><HomeIcon/>         <AddBoxIcon/></div> 
+  <Toolbar>  
+  <a href="/"  style={{color:"white",marginRight:"10px",fontWeight:"bold",textDecoration:"none"}} alt="List">Logout</a>
+     <div style={{float:"initial"}}><a href="/list" alt="List"><HomeIcon style={{color:"white"}}/>   </a><a href="/search"><AddBoxIcon  style={{color:"white"}}/></a></div> 
     <Typography variant="h6" className={classes.title} style={{marginLeft:"auto"}}>
-      UserName
+      myDiary@gmail.com
     </Typography>
   </Toolbar>
 </AppBar>
