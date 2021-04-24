@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import styles from "./style";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -12,6 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import image from "../images/DigitalDiary.PNG";
+
 
 
 
@@ -44,9 +47,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-
+const imageOne = image;
+console.log(imageOne)
   return (
-<div>
+    <div>
+          <img
+        src={imageOne}
+        title="Logo"
+      />
          <CssBaseline />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
