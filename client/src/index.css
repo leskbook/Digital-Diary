@@ -13,6 +13,9 @@ code {
     monospace;
 }
 html, body {
-  background-image: url(./images/MainPage.jpg);
+  background-size: cover;
+  background-image: url(./images/notebook.jpg);
   max-width: 100%;
+  height: 100%;
+  width: 100%;
 }

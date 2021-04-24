@@ -1,7 +1,6 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import styles from "./style";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -13,23 +12,23 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import image from "../images/DigitalDiary.PNG";
+import image from "../images/DigitalDiary2.png";
 
 
 
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    width: "100%",
+    width: "80%",
     borderStyle: 'solid',
     borderWidth: '5px',
     borderColor: "black",
-    padding: '5px',
     backgroundColor: 'white',
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginLeft: '10%',
   },
   avatar: {
     margin: theme.spacing(1),
@@ -42,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  logo: {
+    float: 'left',
+    height: '150px',
+    marginTop: '20px',
+    marginLeft: '20px',
+  },
 
 }));
 
@@ -50,8 +55,8 @@ export default function SignIn() {
 const imageOne = image;
 console.log(imageOne)
   return (
-    <div>
-          <img
+    <div >
+          <img className={classes.logo}
         src={imageOne}
         title="Logo"
       />
