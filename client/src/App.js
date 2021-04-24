@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import Search from "./components/memoSearch"
 import List from "./components/memoList"
-import image from "./images/MainPage.jpg";
 import SignIn from "./components/login"
 import {BrowserRouter as Router,Route,Switch,Redirect} from "react-router-dom";
 function App() {
