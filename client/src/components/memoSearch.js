@@ -17,7 +17,6 @@ const Search = () => {
   const [imageurl, setImageurl] = useState('')
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(document.getElementById("imageFile").value);
     if (document.getElementById("memoTitle").value == "") {
       document.getElementById("spanTitle").style.display = "block";
       return
@@ -62,6 +61,17 @@ const Search = () => {
         })
     }
   }
+  const handleClear=()=>{
+    setTitle('');
+    setDescription('');
+    setImageurl(' ');
+    setUploadImage('');
+    
+    document.getElementById("memoTitle").value = "";
+    document.getElementById("memoDesc").value = "";
+    document.getElementById("imageFile").value = ""
+    document.getElementById("imagePreview").style.display = "none";
+  }
   return (
     <div className={classes.root}>
       <Header />
@@ -92,7 +102,7 @@ const Search = () => {
                 <div style={{ width: "100%", height: "30px" }}><span id="spanFile" className={classes.validateTitle}>* Select an image</span></div>
 
                 <Button type="submit" className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="large" fullWidth>Clear</Button>
+                <Button variant="contained" color="secondary" size="large" onClick={handleClear} fullWidth>Clear</Button>
               </div>
             </form>
           </Paper>

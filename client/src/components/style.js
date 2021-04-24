@@ -50,5 +50,11 @@ margin:"5px"
     color: "red",
     position: "absolute",
     fontStyle:"Italic"
+  },
+  footer :{
+    backgroundColor: "white",
+    width: "100%",
+    position: "absolute",
+    bottom: "0"
   }
 }));
