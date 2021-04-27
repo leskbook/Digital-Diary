@@ -25,8 +25,26 @@ margin:"5px"
     marginBottom: 10,
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: "200px",
+    width:"300px",
+    // paddingTop: '56.25%', // 16:9
+    objectFit:"contain"
+  },
+  media1: {
+    height: "400px",
+    width:"400px",
+    // paddingTop: '56.25%', // 16:9
+    objectFit:"contain"
+  },
+  footer:{
+    marginTop: "1rem",
+  padding: "1rem",
+  backgroundColor: "#ebf0fa",
+  position: "fixed",
+  bottom: "0",
+  left: "0",
+  width: "100%",
+  height:"40px"
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -50,11 +68,5 @@ margin:"5px"
     color: "red",
     position: "absolute",
     fontStyle:"Italic"
-  },
-  footer :{
-    backgroundColor: "white",
-    width: "100%",
-    position: "absolute",
-    bottom: "0"
   }
 }));
