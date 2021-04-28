@@ -174,7 +174,9 @@ const handleDelete = async() => {
          {card.description}
         </Typography>
         <Typography id="createDiscreption" variant="body2" color="textSecondary" style={{display:"none"}}>
-        <TextField value={card.descreiption} className={classes.input} name="Title" variant="outlined" label="Caption" />
+        <TextField rows={3}
+                rowsMax={10}
+                multiline value={card.descreiption} className={classes.input} name="Title" variant="outlined" label="Caption" />
         </Typography>
       </CardContent>
       <CardActions disableSpacing>       
