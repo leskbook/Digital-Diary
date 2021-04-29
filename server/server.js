@@ -11,6 +11,7 @@ var PORT = process.env.PORT || 5000;
 const db=require("./models");
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+console.log(process.env.NODE_ENV);
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

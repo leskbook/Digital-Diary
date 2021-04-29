@@ -1,14 +1,11 @@
-import React ,{useState,useContext,useEffect} from 'react';
-import {Grid,Paper,AppBar,Toolbar,Button,TextField} from "@material-ui/core";
+import React ,{useState,useEffect} from 'react';
+import {Grid,TextField} from "@material-ui/core";
 import useStyles from "./style";
-import API from "../utils/API";
 import Header from "./Header";
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import MemoCard from "./memoCard";
 const MemoList=()=>{
-  const data=[];
-  const date=new Date();
   const [holdCard,setholdCard]=useState([]);
     const classes = useStyles();
     const [page, setPage] = React.useState(1);
@@ -21,6 +18,7 @@ const MemoList=()=>{
     setPage(value);
   };
   const handlefilter=async(event, value)=>{
+    setPage(1);
     const date=event.target.value;
     console.log(date);
     const res = await fetch(`http://localhost:5000/data/filter?date=${encodeURIComponent(date)}`,
@@ -28,8 +26,16 @@ const MemoList=()=>{
         method: "GET"
     });
   const  data = await res.json();  
-           setFilterData(data);
-          
+  console.log(data)
+                if(data.length)
+                {
+                  document.getElementById("memory").style.display="none";
+                }
+                else
+                {
+                  document.getElementById("memory").style.display="block";
+                }
+           setFilterData(data);          
            console.log(data);
            console.log(filterData);
            setCheck(true);
@@ -43,10 +49,9 @@ const MemoList=()=>{
              
            setfilter(true);
            }
-        // })
   }
-  useEffect(async()=>{
-    console.log("hi")
+  useEffect(()=>{
+   async function fetchData(){
     if(!check)
     {
     const res = await fetch("http://localhost:5000/data/read",
@@ -64,22 +69,24 @@ const MemoList=()=>{
       let totalNoOfPages=noOfPages+remaning;
       setPageCount(totalNoOfPages);
       console.log(totalNoOfPages);
-      if(page==1)
-      {   
+      if(page===1)
+      {  
+        let data=[]; 
       for(let i=0;i<3;i++)
       {
         if(noOfCards[i])
        data.push(noOfCards[i])
       
       }
-      setholdCard(data);                     
-      console.log(holdCard);
+      setholdCard(data);    
     }
     else
     {
+      let data=[]
          const noPage=page;
-        if(page==pageCount)
+        if(page===pageCount)
         {
+        
           for(let i=(noPage-1)*3;i<noOfCards.length;i++)
           {
             data.push(noOfCards[i])
@@ -87,6 +94,7 @@ const MemoList=()=>{
         }
         else
         {
+          
       for(let i=(noPage-1)*3;i<=(noPage*3)-1;i++)
       {
         data.push(noOfCards[i])
@@ -98,38 +106,49 @@ const MemoList=()=>{
   }
     else
     {
-      const noOfCards=filterData.reverse();
+      let noOfCards=[];
+      noOfCards=filterData;
+      noOfCards=noOfCards.reverse();      
+      setholdCard('');
       if(filterData.length)
-      {
+      { 
+      let data=[];
         let noOfPages=Math.floor(filterData.length/3);
         let remaning=0;
         if(filterData.length%3)remaning=1;
         let totalNoOfPages=noOfPages+remaning;
         setPageCount(totalNoOfPages);
-        console.log(totalNoOfPages);
-        if(page==1)
-        {   
+        console.log(noOfCards);
+        if(page===1)
+        {  
+          noOfCards=noOfCards.reverse();
         for(let i=0;i<3;i++)
         {
           if(noOfCards[i])
          data.push(noOfCards[i])
+        //  console.log("data1",data);
         
         }
         setholdCard(data);                     
-        console.log(holdCard);
+        // console.log(holdCard);
       }
       else
-      {
+      { 
            const noPage=page;
-          if(page==pageCount)
+           noOfCards=noOfCards.reverse();
+          if(page===pageCount)
           {
             for(let i=(noPage-1)*3;i<noOfCards.length;i++)
             {
-              data.push(noOfCards[i])
+              // alert(i)
+              data.push(noOfCards[(i)])
+              // console.log("data2",data);
             }
+            
           }
           else
           {
+            noOfCards=noOfCards.reverse();
         for(let i=(noPage-1)*3;i<=(noPage*3)-1;i++)
         {
           data.push(noOfCards[i])
@@ -139,11 +158,12 @@ const MemoList=()=>{
       }
       }
       else
-    {
-      setholdCard('');
+      {
+        setPageCount(1)
+      }
     }
-    }
-    
+   }
+   fetchData();    
   },[page,first,filter]);
     return(
         <div>
@@ -166,9 +186,10 @@ const MemoList=()=>{
     {(holdCard.length)?(holdCard.map((data)=>(
                 <Grid  item xs={12} sm={12} lg={4}>
                     <MemoCard card={data}></MemoCard>
-                    </Grid>) )):(<h1>No Records</h1>)
+                    </Grid>) )):<h1  style={{display:"none"}}>No data</h1>
            }
 </Grid>
+<h1 id="memory" style={{display:"none"}}>No Records</h1>
 <footer className={classes.footer}>
          
       <Typography>Page: {page}</Typography>
