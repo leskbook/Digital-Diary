@@ -1,5 +1,4 @@
 import axios from 'axios';
-const uri="http://localhost:5000/data";
 
 const User={
     createMemories:(data)=>axios.post("http://localhost:5000/data/create",data),

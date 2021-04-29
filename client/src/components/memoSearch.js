@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import API from "../utils/API";
-import { Grid, Paper, Typography, TextField, Button, AppBar, Toolbar } from "@material-ui/core"
+import { Grid, Paper, Typography, TextField, Button} from "@material-ui/core"
 import useStyles from "./style";
 import { useHistory } from "react-router-dom";
 import memoryContext from "../utils/memoryContext";
@@ -17,15 +17,15 @@ const Search = () => {
   const [imageurl, setImageurl] = useState('')
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (document.getElementById("memoTitle").value == "") {
+    if (document.getElementById("memoTitle").value === "") {
       document.getElementById("spanTitle").style.display = "block";
       return
     }
-    else if (document.getElementById("memoDesc").value == "") {
+    else if (document.getElementById("memoDesc").value === "") {
       document.getElementById("spanDesc").style.display = "block";
       return
     }
-    else if (document.getElementById("imageFile").value == "") {
+    else if (document.getElementById("imageFile").value === "") {
       document.getElementById("spanFile").style.display = "block";
       return
     }
@@ -101,7 +101,7 @@ const Search = () => {
                 }} />
                 <div style={{ width: "100%", height: "30px" }}><span id="spanFile" className={classes.validateTitle}>* Select an image</span></div>
 
-                <Button type="submit" className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+                <Button  className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="large" onClick={handleClear} fullWidth>Clear</Button>
               </div>
             </form>

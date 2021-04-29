@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from 'react';
+import React,{useState,useContext} from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -7,7 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import EditIcon from '@material-ui/icons/Edit';
-import {Grid,Paper,Button,TextField} from "@material-ui/core";
+import {Paper,Button} from "@material-ui/core";
+import {TextField} from '@material-ui/core';
 import useStyles from "./style";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Dialog from '@material-ui/core/Dialog';
@@ -17,7 +18,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import moment from "moment";
 import API from "../utils/API";
-import {useHistory} from "react-router-dom";
 import memoryContext from "../utils/memoryContext";
 import Slide from '@material-ui/core/Slide';
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -25,11 +25,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 const MemoCard=({card})=>{
   const {newUserfunction}=useContext(memoryContext);
-  const history= useHistory();
   const [openCard,setOpenCard]=useState();
   const [updateTitle,setUpdateTitle]=useState();
   const [cardID,setCardID]=useState();
-  const [cardDeleteID,setCardDeleteID]=useState();
   const [updateDesc,setUpdateDesc]=useState();
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -95,7 +93,7 @@ const handleDelete = async() => {
     let date=moment(card.createdAt).format("DD-MM-YYYY");
     return(
         <div>
-          <Dialog id={cardDeleteID}
+          <Dialog 
         open={deleteCard}
         TransitionComponent={Transition}
         keepMounted
@@ -156,11 +154,11 @@ const handleDelete = async() => {
       </Dialog>
           <TextField  style={{display:"none"}} id="createTitle" value={card.title} className={classes.input} name="Title" variant="outlined" label="Caption"  />
 
-      <CardMedia><img onClick={handleClickOpen} className={classes.media} src={image}/></CardMedia>
+      <CardMedia><img onClick={handleClickOpen} className={classes.media} alt="Main image" src={image}/></CardMedia>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         
         <DialogContent dividers>
-        <img onClick={handleClickOpen} className={classes.media1} src={image}/>
+        <img onClick={handleClickOpen} className={classes.media1} src={image} alt="Main image"/>
         </DialogContent>
       </Dialog>
       <Dialog onClose={handleSucessesClose} aria-labelledby="customized-dialog-title" open={success}>
@@ -174,8 +172,7 @@ const handleDelete = async() => {
          {card.description}
         </Typography>
         <Typography id="createDiscreption" variant="body2" color="textSecondary" style={{display:"none"}}>
-        <TextField rows={3}
-                rowsMax={10}
+        <TextField 
                 multiline value={card.descreiption} className={classes.input} name="Title" variant="outlined" label="Caption" />
         </Typography>
       </CardContent>
