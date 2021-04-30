@@ -14,5 +14,12 @@ module.exports=function(sequelize,DataTypes){
             type:DataTypes.STRING
         }
     });
+    Memories.associate=models=>{
+        Memories.belongsTo(models.User,{
+            foreignKey:{
+                allowNull:false
+            }
+        })
+    }
     return Memories;
 }

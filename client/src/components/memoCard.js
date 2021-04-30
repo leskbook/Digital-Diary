@@ -168,12 +168,8 @@ const handleDelete = async() => {
         </DialogContent>
       </Dialog>
       <CardContent>
-        <Typography id="readDescreption" variant="body2" color="textSecondary">
+        <Typography className={classes.scrollBox} id="readDescreption" variant="body2" color="textSecondary">
          {card.description}
-        </Typography>
-        <Typography id="createDiscreption" variant="body2" color="textSecondary" style={{display:"none"}}>
-        <TextField 
-                multiline value={card.descreiption} className={classes.input} name="Title" variant="outlined" label="Caption" />
         </Typography>
       </CardContent>
       <CardActions disableSpacing>       

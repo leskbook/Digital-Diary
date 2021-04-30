@@ -5,15 +5,17 @@ exports.createMemories = (req, res) => {
     db.Memories.create({
         description: req.body.description,
         title: req.body.title,
-        imageurl: req.body.imageurl
+        imageurl: req.body.imageurl,
+        UserId:req.body.UserId
     })
         .then((data) => res.send(data))
         .catch((err) => { console.log(err) })
 }
 
 exports.getMemories = (req, res) => {
-    db.Memories.findAll({})
-        .then((data) => { console.log(data); res.json(data) })
+    console.log("the id is ", req.query);
+    db.Memories.findAll({ where: { userId: req.query.id } })
+        .then((data) => { res.json(data) })
         .catch((err) => { console.log(err) })
 }
 
@@ -37,10 +39,20 @@ exports.updateMemories=(req, res)=> {
 }
 
 exports.filterDate=(req, res)=> {
-    db.Memories.findAll({ where:{ createdAT: req.query.date } })
+    console.log(req.query.date);
+    db.Memories.findAll({ where:{ UserId: req.query.userId} })
         .then(function (data) {
-            console.log(data)
-            res.json(data);
+            console.log(data);
+            const returnArray=[];
+            data.forEach(element => {
+                if(element.dataValues.createdAt==req.query.date)
+                {
+                    returnArray.push(element);
+                }
+            });
+            
+            console.log(returnArray)
+            res.json(returnArray);
         })
         .catch(function (err) {
             res.status(401).json(err);
@@ -48,7 +60,6 @@ exports.filterDate=(req, res)=> {
 }
 
 exports.deleteMemories = (req, res) => {
-    console.log(req.query)
     db.Memories.destroy({ where: { id: req.query.id } })
         .then(function (data) {
             res.json(data);

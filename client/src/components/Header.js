@@ -3,17 +3,36 @@ import {Typography,AppBar,Toolbar} from "@material-ui/core"
 import HomeIcon from '@material-ui/icons/Home';
 import useStyles from "./style";
 import AddBoxIcon from '@material-ui/icons/AddBox';
-const Header=()=>{
+import {useHistory} from "react-router-dom";
+import API from "../utils/loginAPI";
+const Header=(props)=>{
     const classes = useStyles();
-
+    const history=new useHistory();
+    const handleCreateMemories=()=>{
+      history.push({pathname:"/search",
+      state:{username:props.username, id:props.id}
+  })
+}
+  const handleListMemories=()=>{
+    history.push({pathname:"/list",
+    state:{username:props.username, id:props.id}
+})
+  }
+  
+  const handleLogOut=()=>{
+    API.logout()
+    history.push({pathname:"/"})
+    }  
 return(
     <div className={classes.root}>
 <AppBar position="static" fullWidth>
   <Toolbar>  
-  <a href="/"  style={{color:"white",marginRight:"10px",fontWeight:"bold",textDecoration:"none"}} alt="List">Logout</a>
-     <div style={{float:"initial"}}><a href="/list" alt="List"><HomeIcon style={{color:"white"}}/>   </a><a href="/search"><AddBoxIcon  style={{color:"white"}}/></a></div> 
+  <a onClick={handleLogOut}  style={{cursor:'pointer',color:"white",marginRight:"10px",fontWeight:"bold",textDecoration:"none"}} alt="List">Logout</a>
+     <div style={{float:"initial"}}>
+       <button title="Memories" onClick={handleListMemories}><HomeIcon style={{color:"black"}}/></button>
+     <button title="Create Memory" onClick={handleCreateMemories}><AddBoxIcon  style={{color:"black"}}/></button></div> 
     <Typography variant="h6" className={classes.title} style={{marginLeft:"auto"}}>
-      myDiary@gmail.com
+      {props.username}
     </Typography>
   </Toolbar>
 </AppBar>
