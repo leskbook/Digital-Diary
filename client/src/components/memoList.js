@@ -5,7 +5,8 @@ import Header from "./Header";
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import MemoCard from "./memoCard";
-const MemoList=()=>{
+import RefreshIcon from '@material-ui/icons/Refresh';
+const MemoList=(props)=>{
   const [holdCard,setholdCard]=useState([]);
     const classes = useStyles();
     const [page, setPage] = React.useState(1);
@@ -17,11 +18,16 @@ const MemoList=()=>{
   const handleChange = (event, value) => {
     setPage(value);
   };
+  const handleRefresh=()=>{
+    setCheck(false);
+    document.getElementById("date").value="";
+  }
   const handlefilter=async(event, value)=>{
+    setCheck(true);
     setPage(1);
     const date=event.target.value;
     console.log(date);
-    const res = await fetch(`http://localhost:5000/data/filter?date=${encodeURIComponent(date)}`,
+    const res = await fetch(`http://localhost:5000/data/filter?date=`+encodeURIComponent(date)+"&&userId="+props.history.location.state.id,
     {
         method: "GET"
     });
@@ -38,7 +44,6 @@ const MemoList=()=>{
            setFilterData(data);          
            console.log(data);
            console.log(filterData);
-           setCheck(true);
            if(filter)
            {
 
@@ -54,13 +59,21 @@ const MemoList=()=>{
    async function fetchData(){
     if(!check)
     {
-    const res = await fetch("http://localhost:5000/data/read",
+    const res = await fetch(`http://localhost:5000/data/read?id=`+props.history.location.state.id,
     {
         method: "GET"
     });
    const  memo = await res.json();  
     setFirst(true);   
     const noOfCards=memo.reverse();
+    if(memo.length)
+    {
+      document.getElementById("memory").style.display="none";
+    }
+    else
+    {
+      document.getElementById("memory").style.display="block";
+    }
     if(memo.length)
     {
       let noOfPages=Math.floor(memo.length/3);
@@ -164,10 +177,10 @@ const MemoList=()=>{
     }
    }
    fetchData();    
-  },[page,first,filter]);
+  },[page,first,filter,check]);
     return(
         <div>
-         <Header/>
+         <Header username={props.history.location.state.username} id={props.history.location.state.id} />
          <Grid container   alignitems="stretch" spacing={0} className={classes.root}>
            <Grid item xs={12} style={{backgroundColor:"white"}}>
          <TextField style={{marginTop:"2px"}}
@@ -180,6 +193,7 @@ const MemoList=()=>{
         }}
         onChange={handlefilter}
       />
+      <button style={{marginTop:"14px"}} title="Refresh" onClick={handleRefresh}><RefreshIcon style={{color:"black"}}/></button>
       </Grid>
          </Grid>            
     <Grid container   alignitems="stretch" spacing={0}>

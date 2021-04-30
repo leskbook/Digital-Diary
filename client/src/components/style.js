@@ -37,14 +37,14 @@ margin:"5px"
     objectFit:"contain"
   },
   footer:{
-    marginTop: "1rem",
-  padding: "1rem",
+    marginTop: "0rem",
+  padding: "0rem",
   backgroundColor: "#ebf0fa",
   position: "fixed",
   bottom: "0",
   left: "0",
   width: "100%",
-  height:"40px"
+  height:"55px"
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -68,5 +68,13 @@ margin:"5px"
     color: "red",
     position: "absolute",
     fontStyle:"Italic"
-  }
+  },
+  scrollBox: {
+    overflowY: "scroll",
+    overflowX:'hidden',
+    height: "100px",
+    padding: "1rem",
+    textAlign:"left"
+}
+
 }));

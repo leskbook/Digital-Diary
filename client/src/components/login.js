@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {useHistory} from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,10 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import image from "../images/DigitalDiary2.png";
-
-
-
-
+import API from "../utils/loginAPI";
 const useStyles = makeStyles((theme) => ({
   paper: {
     width: "80%",
@@ -51,6 +49,43 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  const [signupUserName,setSignUpUserName]=useState();
+const [signupEmail,setSignUpEmail]=useState();
+const [signupPassword,setSignUpPassword]=useState();
+const [loginEmail,setloginEmail]=useState();
+const [loginPassword,setloginPassword]=useState();
+const history=new useHistory();
+const handleformSubmit=()=>{
+const signUp={
+  username:signupUserName,
+  password:signupPassword,
+  email:signupEmail
+}
+API.signup(signUp)
+    .then(()=>{
+      document.getElementById("spanTitle").style.display="none";
+      console.log("Successfull signup")
+    })
+    .catch((err)=>{
+     
+            document.getElementById("spanTitle").style.display="block";
+    })
+}
+const handleformLoginSubmit=async(e)=>{
+  e.preventDefault();
+  const login={
+    password:loginPassword,
+    email:loginEmail
+  }
+ await API.login(login)
+  .then((data)=>{
+    console.log("the result is",data)
+    history.push({pathname:"/list",
+    state:{username:data.data.username, id:data.data.id}
+})    
+       })
+  }
+
   const classes = useStyles();
 const imageOne = image;
 console.log(imageOne)
@@ -70,7 +105,7 @@ console.log(imageOne)
         <Typography component="h1" variant="h5">
           Log In
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleformLoginSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -81,6 +116,9 @@ console.log(imageOne)
             name="email"
             autoComplete="email"
             autoFocus
+            value={loginEmail}
+            onChange={(e)=>{setloginEmail(e.target.value)}}
+            
           />
           <TextField
             variant="outlined"
@@ -92,6 +130,8 @@ console.log(imageOne)
             type="password"
             id="password"
             autoComplete="current-password"
+            value={loginPassword}
+            onChange={(e)=>{setloginPassword(e.target.value)}}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -109,9 +149,7 @@ console.log(imageOne)
         </form>
       </div>
       </Grid>
-
       <Grid item xs={12} sm={6}>
-
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -119,18 +157,21 @@ console.log(imageOne)
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleformSubmit}> 
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="username"
             label="Username"
-            name="email"
-            autoComplete="email"
+            name="username"
+            autoComplete="username"
             autoFocus
+            value={signupUserName}
+            onChange={(e)=>{setSignUpUserName(e.target.value)}}
           />
+          <div style={{ width: "100%", height: "20px" }}><span style={{display:"none"}} id="spanTitle">Email already exist</span></div>
                <TextField
             variant="outlined"
             margin="normal"
@@ -141,6 +182,8 @@ console.log(imageOne)
             name="email"
             autoComplete="email"
             autoFocus
+            value={signupEmail}
+            onChange={(e)=>{setSignUpEmail(e.target.value)}}
           />
           <TextField
             variant="outlined"
@@ -151,7 +194,8 @@ console.log(imageOne)
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="current-password"  value={signupPassword}
+            onChange={(e)=>{setSignUpPassword(e.target.value)}}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

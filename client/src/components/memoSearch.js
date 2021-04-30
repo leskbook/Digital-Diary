@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import memoryContext from "../utils/memoryContext";
 import Header from "./Header";
 
-const Search = () => {
+const Search = (props) => {
   const { newUserfunction } = useContext(memoryContext);
   const history = useHistory();
   const classes = useStyles();
@@ -48,16 +48,16 @@ const Search = () => {
       const memories = {
         title: title,
         description: description,
-        imageurl: files.secure_url
+        imageurl: files.secure_url,
+        UserId:props.history.location.state.id
       }
       await API.createMemories(memories)
         .then((data) => {
           console.log(data);
           newUserfunction();
-          history.push({
-            pathname: "/list",
-          })
-
+          history.push({pathname:"/list",
+          state:{username:props.history.location.state.username,id:props.history.location.state.id}
+      })  
         })
     }
   }
@@ -74,7 +74,7 @@ const Search = () => {
   }
   return (
     <div className={classes.root}>
-      <Header />
+      <Header username={props.history.location.state.username} id={props.history.location.state.id} />
       <Grid spacing={3}>
         <Grid item xs={12} style={{ height: "500px", marginTop: "30px" }}>
           <Paper className={classes.paper} style={{ width: "50%", margin: "auto" }}>
