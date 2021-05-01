@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     marginLeft: '10%',
+    marginTop:"1px"
   },
   avatar: {
     margin: theme.spacing(1),
@@ -58,22 +59,43 @@ const [loginPassword,setloginPassword]=useState();
 const history=new useHistory();
 const handleformSubmit=(e)=>{
   e.preventDefault();
+  if(signupUserName=="")
+  {
+    document.getElementById("spanUserName").style.display="block";
+  }
+  else if(signupEmail=="")
+  {
+    document.getElementById("spanTitle").style.display="block";
+  }
+  else if(signupPassword=="")
+  {
+    document.getElementById("spanPassword").style.display="block";
+  }
+  else
+  {
+    
+    document.getElementById("spanTitle").style.display="none";
+    document.getElementById("spanUserName").style.display="none";
+    document.getElementById("spanPassword").style.display="none";
+
   const re = /\S+@\S+\.\S+/;
   if(re.test(signupEmail))
   {
-    document.getElementById("spanTitle").style.display="none";
     const signUp={  
       username:signupUserName,
       password:signupPassword,
       email:signupEmail
     }
     API.signup(signUp)
-        .then(()=>{
-          document.getElementById("spanTitle").style.display="none";
-          console.log("Successfull signup")
+        .then((data)=>{
+          // document.getElementById("spanTitle").style.display="none";
+          setSignUpEmail('');
+          setSignUpUserName('');
+          setSignUpPassword('');
+          setInterval(document.getElementById("spanSignUpSuccess").style.display="block",1000);
+          document.getElementById("spanTitle").textContent=" ";
         })
         .catch((err)=>{
-         
                 document.getElementById("spanTitle").style.display="block";
                 document.getElementById("spanTitle").textContent="Email already exist";
         })
@@ -83,7 +105,7 @@ const handleformSubmit=(e)=>{
     document.getElementById("spanTitle").textContent="Email not valid";
     document.getElementById("spanTitle").style.display="block";
   }
-
+  }
 }
 const handleformLoginSubmit=async(e)=>{
   e.preventDefault();
@@ -152,8 +174,7 @@ console.log(imageOne)
             autoComplete="current-password"
             value={loginPassword}
             onChange={(e)=>{setloginPassword(e.target.value)}}
-          />
-         
+          />         
           <Button
             type="submit"
             fullWidth
@@ -174,6 +195,7 @@ console.log(imageOne)
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
+        <div style={{ width: "100%",marginLeft:"12px" ,backgroundColor:"blue"}}><span style={{fontSize:"40px",display:"none",color:"red",height:"5px"}} id="spanSignUpSuccess">Successfully Signup</span></div>
         <form className={classes.form} noValidate onSubmit={handleformSubmit}> 
           <TextField
             variant="outlined"
@@ -186,8 +208,10 @@ console.log(imageOne)
             autoComplete="username"
             autoFocus
             value={signupUserName}
-            onChange={(e)=>{setSignUpUserName(e.target.value)}}
+            onChange={(e)=>{document.getElementById("spanUserName").style.display="none"
+            ;setSignUpUserName(e.target.value)}}
           />
+          <div style={{ width: "100%",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanUserName">Enter username</span></div>
                <TextField
             variant="outlined"
             margin="normal"
@@ -203,8 +227,7 @@ console.log(imageOne)
               document.getElementById("spanTitle").style.display="none";
               setSignUpEmail(e.target.value)}}
           />
-          <div style={{ width: "100%", height: "20px",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanTitle">Email already exist</span></div>
-
+          <div style={{ width: "100%",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanTitle">Email already exist</span></div>
           <TextField
             variant="outlined"
             margin="normal"
@@ -215,9 +238,11 @@ console.log(imageOne)
             type="password"
             id="password"
             autoComplete="current-password"  value={signupPassword}
-            onChange={(e)=>{setSignUpPassword(e.target.value)}}
+            onChange={(e)=>{
+              document.getElementById("spanPassword").style.display="none";
+              setSignUpPassword(e.target.value)}}
           />
-         
+         <div style={{ width: "100%",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanPassword">Enter password</span></div>
           <Button
             type="submit"
             fullWidth

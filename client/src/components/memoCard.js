@@ -20,6 +20,7 @@ import moment from "moment";
 import API from "../utils/API";
 import memoryContext from "../utils/memoryContext";
 import Slide from '@material-ui/core/Slide';
+import "./styles.css";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -168,7 +169,6 @@ const handleDelete = async() => {
         </DialogActions>
       </Dialog>
           <TextField  style={{display:"none"}} id="createTitle" value={card.title} className={classes.input} name="Title" variant="outlined" label="Caption"  />
-
       <CardMedia><img onClick={handleClickOpen} className={classes.media} alt="Mainimage" src={image}/></CardMedia>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         
@@ -194,5 +194,4 @@ const handleDelete = async() => {
         </div>
     )
 }
-
 export default MemoCard;
