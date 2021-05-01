@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: '100%', 
-    marginTop: theme.spacing(1),
+    padding: '5%',
+
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -133,10 +134,7 @@ console.log(imageOne)
             value={loginPassword}
             onChange={(e)=>{setloginPassword(e.target.value)}}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+         
           <Button
             type="submit"
             fullWidth
@@ -197,10 +195,7 @@ console.log(imageOne)
             autoComplete="current-password"  value={signupPassword}
             onChange={(e)=>{setSignUpPassword(e.target.value)}}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+         
           <Button
             type="submit"
             fullWidth
