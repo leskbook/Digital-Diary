@@ -16,6 +16,7 @@ margin:"5px"
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    padding: '0%',
   },
   fileInput: {
     width: '97%',
