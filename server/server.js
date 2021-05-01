@@ -11,6 +11,7 @@ var PORT = process.env.PORT || 5000;
 const db=require("./models");
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+
 console.log(process.env.NODE_ENV);
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("../client/build"));
 }
 app.use(express.static("public"));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('../client/build'));
+}
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -34,3 +38,4 @@ db.sequelize.sync().then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
+
