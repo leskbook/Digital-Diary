@@ -76,6 +76,7 @@ margin:"5px"
     height: "100px",
     padding: "1rem",
     textAlign:"left"
-}
+},
+
 
 }));

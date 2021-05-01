@@ -7,6 +7,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import MemoCard from "./memoCard";
 import RefreshIcon from '@material-ui/icons/Refresh';
 const MemoList=(props)=>{
+  const date=new Date();
   const [holdCard,setholdCard]=useState([]);
     const classes = useStyles();
     const [page, setPage] = React.useState(1);
@@ -198,8 +199,8 @@ const MemoList=(props)=>{
          </Grid>            
     <Grid container   alignitems="stretch" spacing={0}>
     {(holdCard.length)?(holdCard.map((data)=>(
-                <Grid  item xs={12} sm={12} lg={4}>
-                    <MemoCard card={data}></MemoCard>
+                <Grid  item xs={12} sm={12} lg={4} style={{marginBottom:"70px"}}>
+                    <MemoCard key={data.id} card={data}></MemoCard>
                     </Grid>) )):<h1  style={{display:"none"}}>No data</h1>
            }
 </Grid>

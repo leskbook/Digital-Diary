@@ -14,7 +14,8 @@ const Search = (props) => {
   const [image, setImage] = useState('');
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [imageurl, setImageurl] = useState('')
+  const [imageurl, setImageurl] = useState('');
+  const date=new Date();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (document.getElementById("memoTitle").value === "") {
@@ -100,7 +101,6 @@ const Search = (props) => {
                   }
                 }} />
                 <div style={{ width: "100%", height: "30px" }}><span id="spanFile" className={classes.validateTitle}>* Select an image</span></div>
-
                 <Button  className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="large" onClick={handleClear} fullWidth>Clear</Button>
               </div>
