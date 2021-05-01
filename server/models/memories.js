@@ -1,3 +1,5 @@
+
+const Sequelize=require('sequelize')
 module.exports=function(sequelize,DataTypes){
     const Memories=sequelize.define('Memories',{
         description:
@@ -12,6 +14,11 @@ module.exports=function(sequelize,DataTypes){
         imageurl:
         {
             type:DataTypes.STRING
+        },
+        createdAt:{
+            type: DataTypes.DATEONLY,
+             allowNull: false,
+            defaultValue: Sequelize.NOW
         }
     });
     Memories.associate=models=>{

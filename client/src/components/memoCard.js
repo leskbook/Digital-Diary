@@ -72,8 +72,21 @@ const handleDelete = async() => {
     setOpenCard(false);
   };
   const handleCardSave = async() => {
-    setSuccess(true);
-    console.log(cardID);
+    if(updateTitle=="")
+    {
+      document.getElementById("spanCaption").style.display = "block";
+
+    }
+    else if(updateDesc=="")
+    {
+      document.getElementById("spanMessage").style.display = "block";
+
+    }
+    else
+    {
+      document.getElementById("spanCaption").style.display = "none";
+      document.getElementById("spanMessage").style.display = "none";
+      setSuccess(true);
     const memories = {
       title: updateTitle,
       description: updateDesc,
@@ -86,6 +99,7 @@ const handleDelete = async() => {
       window.location.href="/list";
     setOpenCard(false);
   })
+    }    
 }
     const classes = useStyles();
   
@@ -138,9 +152,10 @@ const handleDelete = async() => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-          <TextField  value={updateTitle} onChange={(e)=>{setUpdateTitle(e.target.value)}} className={classes.input} name="Caption" variant="outlined" label="Caption" fullWidth />
-          <TextField value={updateDesc} onChange={(e)=>{setUpdateDesc(e.target.value)}}  className={classes.input} name="Description" variant="outlined" label="description" fullWidth />
-
+          <TextField  value={updateTitle} onChange={(e)=>{document.getElementById("spanCaption").style.display = "none";setUpdateTitle(e.target.value)}} className={classes.input} name="Caption" variant="outlined" label="Caption" fullWidth />
+          <div style={{ width: "100%", height: "30px" }}><span id="spanCaption" className={classes.validateTitle}>* Select an caption</span></div>
+          <TextField value={updateDesc} onChange={(e)=>{document.getElementById("spanMessage").style.display = "none";setUpdateDesc(e.target.value)}}  className={classes.input} name="Description" variant="outlined" label="Message" fullWidth />
+          <div style={{ width: "100%", height: "30px" }}><span id="spanMessage" className={classes.validateTitle}>* Select an message</span></div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -154,11 +169,11 @@ const handleDelete = async() => {
       </Dialog>
           <TextField  style={{display:"none"}} id="createTitle" value={card.title} className={classes.input} name="Title" variant="outlined" label="Caption"  />
 
-      <CardMedia><img onClick={handleClickOpen} className={classes.media} alt="Main image" src={image}/></CardMedia>
+      <CardMedia><img onClick={handleClickOpen} className={classes.media} alt="Mainimage" src={image}/></CardMedia>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         
         <DialogContent dividers>
-        <img onClick={handleClickOpen} className={classes.media1} src={image} alt="Main image"/>
+        <img onClick={handleClickOpen} className={classes.media1} src={image} alt="Mainimage"/>
         </DialogContent>
       </Dialog>
       <Dialog onClose={handleSucessesClose} aria-labelledby="customized-dialog-title" open={success}>

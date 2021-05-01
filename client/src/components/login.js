@@ -55,21 +55,34 @@ const [signupPassword,setSignUpPassword]=useState();
 const [loginEmail,setloginEmail]=useState();
 const [loginPassword,setloginPassword]=useState();
 const history=new useHistory();
-const handleformSubmit=()=>{
-const signUp={
-  username:signupUserName,
-  password:signupPassword,
-  email:signupEmail
-}
-API.signup(signUp)
-    .then(()=>{
-      document.getElementById("spanTitle").style.display="none";
-      console.log("Successfull signup")
-    })
-    .catch((err)=>{
-     
-            document.getElementById("spanTitle").style.display="block";
-    })
+const handleformSubmit=(e)=>{
+  e.preventDefault();
+  const re = /\S+@\S+\.\S+/;
+  if(re.test(signupEmail))
+  {
+    document.getElementById("spanTitle").style.display="none";
+    const signUp={  
+      username:signupUserName,
+      password:signupPassword,
+      email:signupEmail
+    }
+    API.signup(signUp)
+        .then(()=>{
+          document.getElementById("spanTitle").style.display="none";
+          console.log("Successfull signup")
+        })
+        .catch((err)=>{
+         
+                document.getElementById("spanTitle").style.display="block";
+                document.getElementById("spanTitle").textContent="Email already exist";
+        })
+  }
+  else
+  {
+    document.getElementById("spanTitle").textContent="Email not valid";
+    document.getElementById("spanTitle").style.display="block";
+  }
+
 }
 const handleformLoginSubmit=async(e)=>{
   e.preventDefault();
@@ -79,10 +92,15 @@ const handleformLoginSubmit=async(e)=>{
   }
  await API.login(login)
   .then((data)=>{
+    document.getElementById("spanLoginTitle").style.display="none";
     console.log("the result is",data)
     history.push({pathname:"/list",
     state:{username:data.data.username, id:data.data.id}
 })    
+       })
+       .catch((err)=>{
+        document.getElementById("spanLoginTitle").style.display="block";
+        document.getElementById("spanLoginTitle").textContent="Email not exist";
        })
   }
 
@@ -117,9 +135,10 @@ console.log(imageOne)
             autoComplete="email"
             autoFocus
             value={loginEmail}
-            onChange={(e)=>{setloginEmail(e.target.value)}}
+            onChange={(e)=>{ document.getElementById("spanLoginTitle").style.display="none";setloginEmail(e.target.value)}}
             
           />
+          <div style={{ width: "100%", height: "20px",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanLoginTitle">Email not exist</span></div>
           <TextField
             variant="outlined"
             margin="normal"
@@ -171,7 +190,6 @@ console.log(imageOne)
             value={signupUserName}
             onChange={(e)=>{setSignUpUserName(e.target.value)}}
           />
-          <div style={{ width: "100%", height: "20px" }}><span style={{display:"none"}} id="spanTitle">Email already exist</span></div>
                <TextField
             variant="outlined"
             margin="normal"
@@ -183,8 +201,12 @@ console.log(imageOne)
             autoComplete="email"
             autoFocus
             value={signupEmail}
-            onChange={(e)=>{setSignUpEmail(e.target.value)}}
+            onChange={(e)=>{
+              document.getElementById("spanTitle").style.display="none";
+              setSignUpEmail(e.target.value)}}
           />
+          <div style={{ width: "100%", height: "20px",marginLeft:"12px" }}><span style={{display:"none",fontStyle:'italic',color:"red",float:"left",marginBottom:"3px"}} id="spanTitle">Email already exist</span></div>
+
           <TextField
             variant="outlined"
             margin="normal"

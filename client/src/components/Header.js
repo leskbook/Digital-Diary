@@ -5,6 +5,7 @@ import useStyles from "./style";
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import {useHistory} from "react-router-dom";
 import API from "../utils/loginAPI";
+import "./styles.css"
 const Header=(props)=>{
     const classes = useStyles();
     const history=new useHistory();
@@ -27,10 +28,10 @@ return(
     <div className={classes.root}>
 <AppBar position="static" fullWidth>
   <Toolbar>  
-  <a onClick={handleLogOut}  style={{cursor:'pointer',color:"white",marginRight:"10px",fontWeight:"bold",textDecoration:"none"}} alt="List">Logout</a>
+  <a onClick={handleLogOut} href="#" class="logoutID" alt="List">Logout</a>
      <div style={{float:"initial"}}>
-       <button title="Memories" onClick={handleListMemories}><HomeIcon style={{color:"black"}}/></button>
-     <button title="Create Memory" onClick={handleCreateMemories}><AddBoxIcon  style={{color:"black"}}/></button></div> 
+       <button class="btnList" title="Memories" onClick={handleListMemories}><HomeIcon style={{color:"black"}}/></button>
+     <button class="btnList" title="Create Memory" onClick={handleCreateMemories}><AddBoxIcon  style={{color:"black"}}/></button></div> 
     <Typography variant="h6" className={classes.title} style={{marginLeft:"auto"}}>
       {props.username}
     </Typography>
