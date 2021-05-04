@@ -73,10 +73,16 @@ margin:"5px"
   scrollBox: {
     overflowY: "scroll",
     overflowX:'hidden',
-    height: "100px",
+    height: "125px",
     padding: "1rem",
     textAlign:"left"
 },
+validateTitleSearch:{
+  display:"block",
+  color: "red",
+  float:"right",
+  fontStyle:"Italic"
+}
 
 
 }));
