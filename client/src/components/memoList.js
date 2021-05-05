@@ -246,8 +246,9 @@ const MemoList = (props) => {
       <h1 id="memory" style={{ display: "none" }}>No Records</h1>
       {/* footer to handle pagination */}
       <footer className={classes.footer}>
-        <Typography>Page: {page}</Typography>
-        <Pagination id="pagination" count={pageCount} page={page} onChange={handleChange} />
+        <Typography style={{float:"left"}}>Page: {page} 
+</Typography>
+<Pagination id="pagination" count={pageCount} page={page} onChange={handleChange} style={{float:"right"}}/> 
       </footer>
     </div>
   )
