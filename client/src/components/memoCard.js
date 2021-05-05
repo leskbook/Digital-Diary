@@ -1,5 +1,5 @@
 //import react.useState,useContext form react
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 //import card from material-ui
 import Card from '@material-ui/core/Card';
 //import CardHeader from material-ui
@@ -42,15 +42,11 @@ import API from "../utils/API";
 import Slide from '@material-ui/core/Slide';
 //import style from style.css
 import "./styles.css";
-//import useHistory from rect router dom
-import { useHistory } from "react-router-dom";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 //create a MemoCard function to create the card for each memroy
 const MemoCard = (props) => {
-  //create an instace of useHistory
-  const history = new useHistory();
   //state to open the dialog for update
   const [openCard, setOpenCard] = useState();
   //state to update title
@@ -198,6 +194,9 @@ const MemoCard = (props) => {
             open={openCard}
             onClose={handleCardClose}
             aria-labelledby="draggable-dialog-title"
+            maxWidth="md"
+            fullWidth
+            
           >
             <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
               Update
