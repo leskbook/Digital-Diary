@@ -216,7 +216,7 @@ export default function SignIn() {
                 required
                 fullWidth
                 id="loginEmail"
-                label="Username"
+                label="Email"
                 name="email"
                 autoComplete="email"
                 autoFocus
