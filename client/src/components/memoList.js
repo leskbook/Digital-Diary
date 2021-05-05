@@ -211,7 +211,7 @@ const MemoList = (props) => {
       {/* grid to hold the date */}
       <Grid style={{marginTop:"50px"}} container alignitems="stretch" spacing={0} className={classes.root}>
         <Grid item xs={12} style={{ backgroundColor: "white", textAlign: "center" }}>
-          <TextField style={{ marginTop: "2px" }}
+          <TextField style={{ marginTop: "0px",fontSize:"1px" }}
             id="date"
             label="Search"
             type="date"
@@ -225,9 +225,9 @@ const MemoList = (props) => {
         </Grid>
       </Grid>
       {/* grid to hold the cards */}
-      <Grid id="allCards" container alignitems="stretch" spacing={0} style={{ marginTop: "20px" }}>
+      <Grid id="allCards" container alignitems="stretch" spacing={0}>
         {(holdCard.length) ? (holdCard.map((data) => (
-          <Grid item xs={12} sm={12} lg={4} style={{ marginBottom: "70px" }}>
+          <Grid item xs={12} sm={12} lg={4} style={{ marginBottom: "10px" }}>
 
             {/* // create the memoCard component */}
             <MemoCard onChange={() => {
