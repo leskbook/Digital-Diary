@@ -232,7 +232,7 @@ const MemoList = (props) => {
             {/* // create the memoCard component */}
             <MemoCard onChange={() => {
               setCheck(false);
-              if (child == false) {
+              if (child === false) {
                 setChild(true)
               }
               else {
