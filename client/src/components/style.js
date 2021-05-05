@@ -43,7 +43,7 @@ margin:"5px"
   bottom: "0",
   left: "0",
   width: "100%",
-  height:"55px"
+  height:"40px"
   },
   expand: {
     transform: 'rotate(0deg)',
