@@ -28,7 +28,7 @@ app.use("/data", router);
 //connection
 app.use(express.static(__dirname + '/'));
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, 'index.html'))
+  response.sendFile(path.resolve(__dirname, 'client/build/index.html'))
 });
 //create the database connection using sequlize
 db.sequelize.sync().then(function () {
