@@ -172,8 +172,8 @@ const MemoCard = (props) => {
         </DialogActions>
       </Dialog>
       {/* create a card */}
-      <Paper className={classes.paper} style={{ margin: "auto", marginTop: "10px", width: "70%" }}>
-        <Card className={classes.root}>
+      <Paper className={classes.paper} style={{ margin: "auto", marginTop: "10px", width: "70%" ,height:"450px"}}>
+        <Card className={classes.root} style={{height:"450px"}}>
           <CardHeader id="readTitle" style={{ color: "blue" }}
             action={
               <div>
