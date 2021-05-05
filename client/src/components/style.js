@@ -28,13 +28,11 @@ margin:"5px"
   media: {
     height: "200px",
     width:"300px",
-    // paddingTop: '56.25%', // 16:9
     objectFit:"contain"
   },
   media1: {
     height: "400px",
     width:"400px",
-    // paddingTop: '56.25%', // 16:9
     objectFit:"contain"
   },
   footer:{
