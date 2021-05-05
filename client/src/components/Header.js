@@ -43,7 +43,7 @@ const Header = (props) => {
     //create a div to create an Appbar
     <div className={classes.root}>
       {/* Appbar */}
-      <AppBar position="fixed" fullWidth>
+      <AppBar position="fixed" style={{height:"50px"}} fullWidth>
         {/* create a toolbar */}
         <Toolbar>
           {/* logout hyperlink  */}
