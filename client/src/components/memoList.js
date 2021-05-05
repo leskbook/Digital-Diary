@@ -209,7 +209,7 @@ const MemoList = (props) => {
       {/* header component */}
       <Header username={props.history.location.state.username} id={props.history.location.state.id} />
       {/* grid to hold the date */}
-      <Grid style={{}} container alignitems="stretch" spacing={0} className={classes.root}>
+      <Grid style={{marginTop:"60px"}} container alignitems="stretch" spacing={0} className={classes.root}>
         <Grid item xs={12} style={{ backgroundColor: "white", textAlign: "center" }}>
           <TextField style={{ marginTop: "2px" }}
             id="date"
