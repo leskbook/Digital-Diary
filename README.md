@@ -86,9 +86,9 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 
 ## Usage
 
-![Sign up page](./pictures/SignUp.png)
+![Sign up page](<img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">)
 
-![Log in page](./pictures/Login.png)
+![Log in page](<img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">)
 
 ![Books page](./pictures/BooksPage1.png)
 
