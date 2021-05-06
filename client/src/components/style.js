@@ -71,7 +71,6 @@ margin:"5px"
     overflowY: "scroll",
     overflowX:'hidden',
     height: "125px",
-    padding: "1rem",
     textAlign:"left"
 },
 //set the style for title in search page

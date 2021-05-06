@@ -1,3 +1,5 @@
+
+=======
 # Digital Diary
 
 ## Group Members 
@@ -114,3 +116,4 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
