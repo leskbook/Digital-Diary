@@ -1,5 +1,3 @@
-
-=======
 # Digital Diary
 
 ## Group Members 
@@ -52,7 +50,6 @@ This application is a tool for users to create, login, and store memories in a p
      
     * Logout 
    
-
 ## Installation
 
 In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
@@ -81,34 +78,29 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 * Allows cross browser compatibility and accessibility.
 * Promotes developer joy, A sense of community, and an environment where new and experienced developers can learn from each other.
 
-
 ### Cloudinary 
 
 - With Cloudinary, you can easily upload images and videos to the cloud and automate smart manipulations of those media without installing any other software. Cloudinary then seamlessly delivers your media through a fast content delivery network (CDN), optimized with the industry’s best practices.
 
 ## Usage
 
-![Sign up page](<img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">)
+### Login Page
 
-![Log in page](<img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">)
+### Sign UP 
 
-![Books page](./pictures/BooksPage1.png)
+<img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">
 
-![Add Book function](./pictures/AddBook.png)
+### Previous memories 
 
-![Members page](./pictures/MembersPage1.png)
 
-![Add Member Function](./pictures/AddMember.png)
+<img width="1400" alt="Screen Shot 2021-05-06 at 7 26 53 PM" src="https://user-images.githubusercontent.com/74089015/117378743-05cb2100-aea4-11eb-91be-ee48cb1ac582.png">
 
-## Screenshot
 
-![image](./pictures/Login.png)
+### Search Page 
 
-![image](./pictures/SignUp.png)
 
-![image](./pictures/BooksPage1.png)
+<img width="1387" alt="Screen Shot 2021-05-06 at 7 27 25 PM" src="https://user-images.githubusercontent.com/74089015/117378763-111e4c80-aea4-11eb-8c1d-ed150618b6b3.png">
 
-![image](./pictures/MembersPage1.png)
 
 ## Link
 * GitHub : https://github.com/spental/Digital-Diary
@@ -117,3 +109,4 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[Link to presentation](https://docs.google.com/presentation/d/1Fhriq9zjEzUi72MdNC-r4UwpjBNaCpFt9Um_1eAIibo/edit?usp=sharing)
