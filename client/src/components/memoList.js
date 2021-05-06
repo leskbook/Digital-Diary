@@ -227,7 +227,7 @@ const MemoList = (props) => {
       {/* grid to hold the cards */}
       <Grid id="allCards" container alignitems="stretch" spacing={0}>
         {(holdCard.length) ? (holdCard.map((data) => (
-          <Grid item xs={12} sm={12} lg={4} style={{ marginBottom: "10px" }}>
+          <Grid item xs={12} sm={12} lg={4} style={{ marginBottom: "70px" }}>
 
             {/* // create the memoCard component */}
             <MemoCard onChange={() => {
@@ -246,9 +246,8 @@ const MemoList = (props) => {
       <h1 id="memory" style={{ display: "none" }}>No Records</h1>
       {/* footer to handle pagination */}
       <footer className={classes.footer}>
-        <Typography style={{float:"left"}}>Page: {page} 
-</Typography>
-<Pagination id="pagination" count={pageCount} page={page} onChange={handleChange} style={{float:"right"}}/> 
+        <Typography>Page: {page}</Typography>
+        <Pagination id="pagination" count={pageCount} page={page} onChange={handleChange} />
       </footer>
     </div>
   )
