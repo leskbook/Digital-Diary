@@ -94,6 +94,10 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 
 <img width="1387" alt="Screen Shot 2021-05-06 at 7 27 25 PM" src="https://user-images.githubusercontent.com/74089015/117378763-111e4c80-aea4-11eb-8c1d-ed150618b6b3.png">
 
+### Create Page
+
+<img width="1534" alt="Screen Shot 2021-05-06 at 8 56 50 PM" src="https://user-images.githubusercontent.com/74089015/117382948-a3771e00-aead-11eb-806b-addfd57d2ec7.png">
+
 ### Link
 
 * GitHub : https://github.com/spental/Digital-Diary
