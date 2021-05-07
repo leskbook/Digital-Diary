@@ -82,31 +82,27 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 
 - With Cloudinary, you can easily upload images and videos to the cloud and automate smart manipulations of those media without installing any other software. Cloudinary then seamlessly delivers your media through a fast content delivery network (CDN), optimized with the industry’s best practices.
 
-## Usage
-
-### Login Page
-
-### Sign UP 
+### Log in Page & Sign in 
 
 <img width="1335" alt="Screen Shot 2021-05-06 at 7 24 38 PM" src="https://user-images.githubusercontent.com/74089015/117378393-542bf000-aea3-11eb-9c26-dec0daaa233c.png">
 
 ### Previous memories 
 
-
 <img width="1400" alt="Screen Shot 2021-05-06 at 7 26 53 PM" src="https://user-images.githubusercontent.com/74089015/117378743-05cb2100-aea4-11eb-91be-ee48cb1ac582.png">
-
 
 ### Search Page 
 
-
 <img width="1387" alt="Screen Shot 2021-05-06 at 7 27 25 PM" src="https://user-images.githubusercontent.com/74089015/117378763-111e4c80-aea4-11eb-8c1d-ed150618b6b3.png">
 
+### Link
 
-## Link
 * GitHub : https://github.com/spental/Digital-Diary
 * Heroku App: https://quiet-forest-25305.herokuapp.com/list
-## License
+
+### Presentation
+
+[Digital Diary presentation](https://github.com/spental/Digital-Diary/files/6438162/Project.3.pdf)
+
+### License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-[Link to presentation](https://docs.google.com/presentation/d/1Fhriq9zjEzUi72MdNC-r4UwpjBNaCpFt9Um_1eAIibo/edit?usp=sharing)
