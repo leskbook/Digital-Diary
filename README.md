@@ -101,7 +101,8 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 ### Link
 
 * GitHub : https://github.com/spental/Digital-Diary
-* Heroku App: https://quiet-forest-25305.herokuapp.com/list
+* Heroku App: https://quiet-forest-25305.herokuapp.com/
+
 
 ### Presentation
 
