@@ -106,7 +106,7 @@ In a web browser, navigate to https://quiet-forest-25305.herokuapp.com/
 
 ### Presentation
 
-[Digital Diary Project #3](https://github.com/spental/Digital-Diary/files/6446058/Project.3.pdf)
+[Project #3.pdf](https://github.com/spental/Digital-Diary/files/6446176/Project.3.pdf)
 
 ### License
 
